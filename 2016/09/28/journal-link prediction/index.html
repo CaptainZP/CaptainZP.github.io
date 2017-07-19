@@ -1,0 +1,840 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|georgia:300,300italic,400,400italic,700,700italic|georgia:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="link prediction," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="网络链接的预测：概念与前沿是一篇关于链路预测的综述性文章。 什么是链路预测 根据已有的网络结构预测存在但未被观察到、或者未来可能出现的链路。  链路预测的应用场景 指导生物实验提高实验成功率 社交网络进行朋友推荐 电子商务进行商品推荐 对信息不完全的网络进行重构 基于节点相似性的社团划分  链路预测的测试集选取方法 已知连边分两部分：训练集、测试集。已知连边中随机选取一定比例的连边构成测试集。">
+<meta name="keywords" content="link prediction">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络链接预测：概念与前沿[笔记]">
+<meta property="og:url" content="http://yoursite.com/2016/09/28/journal-link prediction/index.html">
+<meta property="og:site_name" content="CaptainZP&#39;s Blog">
+<meta property="og:description" content="网络链接的预测：概念与前沿是一篇关于链路预测的综述性文章。 什么是链路预测 根据已有的网络结构预测存在但未被观察到、或者未来可能出现的链路。  链路预测的应用场景 指导生物实验提高实验成功率 社交网络进行朋友推荐 电子商务进行商品推荐 对信息不完全的网络进行重构 基于节点相似性的社团划分  链路预测的测试集选取方法 已知连边分两部分：训练集、测试集。已知连边中随机选取一定比例的连边构成测试集。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-09-29T06:22:24.710Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络链接预测：概念与前沿[笔记]">
+<meta name="twitter:description" content="网络链接的预测：概念与前沿是一篇关于链路预测的综述性文章。 什么是链路预测 根据已有的网络结构预测存在但未被观察到、或者未来可能出现的链路。  链路预测的应用场景 指导生物实验提高实验成功率 社交网络进行朋友推荐 电子商务进行商品推荐 对信息不完全的网络进行重构 基于节点相似性的社团划分  链路预测的测试集选取方法 已知连边分两部分：训练集、测试集。已知连边中随机选取一定比例的连边构成测试集。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/28/journal-link prediction/"/>
+
+  <title> 网络链接预测：概念与前沿[笔记] | CaptainZP's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">CaptainZP's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">你看到的是我的成长</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                网络链接预测：概念与前沿[笔记]
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-28T22:42:39+08:00" content="2016-09-28">
+              2016-09-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/journal-note/" itemprop="url" rel="index">
+                    <span itemprop="name">journal note</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/28/journal-link prediction/" class="leancloud_visitors" data-flag-title="网络链接预测：概念与前沿[笔记]">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://www.ccf.org.cn/sites/ccf/xhdtnry.jsp?contentId=2917443957609" target="_blank" rel="external">网络链接的预测：概念与前沿</a>是一篇关于链路预测的综述性文章。</p>
+<h1 id="什么是链路预测"><a href="#什么是链路预测" class="headerlink" title="什么是链路预测"></a><strong>什么是链路预测</strong></h1><blockquote>
+<p>根据已有的网络结构预测存在但未被观察到、或者未来可能出现的链路。</p>
+</blockquote>
+<h1 id="链路预测的应用场景"><a href="#链路预测的应用场景" class="headerlink" title="链路预测的应用场景"></a><strong>链路预测的应用场景</strong></h1><ul>
+<li>指导生物实验提高实验成功率</li>
+<li>社交网络进行朋友推荐</li>
+<li>电子商务进行商品推荐</li>
+<li>对信息不完全的网络进行重构</li>
+<li>基于节点相似性的社团划分</li>
+</ul>
+<h1 id="链路预测的测试集选取方法"><a href="#链路预测的测试集选取方法" class="headerlink" title="链路预测的测试集选取方法"></a><strong>链路预测的测试集选取方法</strong></h1><blockquote>
+<p>已知连边分两部分：训练集、测试集。已知连边中随机选取一定比例的连边构成测试集。</p>
+</blockquote>
+<ol>
+<li>网络是含时的，按时间顺序将最近产生的连边构成测试集</li>
+<li>考察小度节点产生连边的预测时，选择小度节点的连边组成测试集</li>
+</ol>
+<h1 id="衡量链路预测算法精确度的指标"><a href="#衡量链路预测算法精确度的指标" class="headerlink" title="衡量链路预测算法精确度的指标"></a><strong>衡量链路预测算法精确度的指标</strong></h1><blockquote>
+<p>AUC：Area Under ROC Curve，即ROC曲线下的面积</p>
+</blockquote>
+<p>理论上：测试集中随机选取一条边的分数值（分数值由预测算法给出，值越高表示出现的概率越高）比随机选择一条不存在的边的分数值高的概率。</p>
+<p>实际中：每次从测试集和不存在边的集合中各随机选一条边a、b，二者分数值为v(a)、v(b)。若v(a)&gt;v(b)，AUC加1；若v(a)=v(b)，AUC加0.5。独立比较多次所得平均值即为AUC。</p>
+<h1 id="链路预测的方法"><a href="#链路预测的方法" class="headerlink" title="链路预测的方法"></a><strong>链路预测的方法</strong></h1><h2 id="基于节点属性相似性"><a href="#基于节点属性相似性" class="headerlink" title="基于节点属性相似性"></a>基于节点属性相似性</h2><ol>
+<li>在能获得节点的标签时比较标签相似性，如年龄、性别、兴趣等。</li>
+<li>在标签并非显而易见时，分析文本相似性，如用户收藏或发表的问题、参与的话题等。</li>
+</ol>
+<h2 id="基于网络结构相似性"><a href="#基于网络结构相似性" class="headerlink" title="基于网络结构相似性"></a>基于网络结构相似性</h2><p>不能获得节点的标签时，根据网络结构计算节点相似性。此方法有以下几种相似性指标。</p>
+<ol>
+<li>优先连接。 点x度为v(x)，点y度为v(y)，则x、y产生新边的概率p ∝ v(x)*v(y)。</li>
+<li>共同邻居。 点x、y产生新边的概率p ∝ xy共同邻居数。</li>
+<li>AA指标。 当认为不同的共同邻居的影响力不同时，给共同邻居加上权重。若共同邻居m点度为v(m)，则m权重M为节点的度的对数的倒数，则AA指标为所有共同邻居的权重之和。</li>
+<li>LHH2指标。 两节点的邻居节点相似，则这两个节点也相似。</li>
+</ol>
+<h2 id="基于似然分析"><a href="#基于似然分析" class="headerlink" title="基于似然分析"></a>基于似然分析</h2><p>一个N个节点的网络可用一个包含N个叶子节点的数表示，这N个叶子节点由N-1个非叶子节点连接起来，依次往上。每个非叶子节点有一个概率值，则两个节点连接的概率为它们最近共同祖先节点的概率值。</p>
+<h2 id="基于机器学习"><a href="#基于机器学习" class="headerlink" title="基于机器学习"></a>基于机器学习</h2><ol>
+<li>基于特征分类方法。 哈桑等人提取合著网络中科学家研究领域的关键词作为特征，用监督学习中常见的分类算法对缺失的连边进行了较为准确的预测，如决策树、k邻近法、多层感知机、支持向量机，其中支持向量机效果最佳。文中介绍不清。 </li>
+<li>基于概率图模型方法。 使用图模型来表达节点之间的连边概率。文中介绍不清。</li>
+<li>基于矩阵分解方法。 此方法要学习的参数很少，但计算复杂度较高。文中介绍不清。</li>
+</ol>
+<h1 id="复杂网络上的链接预测"><a href="#复杂网络上的链接预测" class="headerlink" title="复杂网络上的链接预测"></a><strong>复杂网络上的链接预测</strong></h1><blockquote>
+<p>复杂网络复杂在网络含权、含时、多层、有向。</p>
+</blockquote>
+<p>文献提出了有向网络链路预测的“势理论”：在一个有向子图中，任选一个节点并给定初始的势能，顺边方向的邻居的势能降低1，逆边方向的邻居的势能增加1。一条有向边的加入能够产生的含有四个节点的双风扇结构越多，则出现的概率越大。</p>
+<h1 id="可预测性"><a href="#可预测性" class="headerlink" title="可预测性"></a><strong>可预测性</strong></h1><p>“结构一致性”指标可以用来衡量网络被预测的难易程度。网络一致性越强的网络，丢失的边也越容易被准确地预测出来。文中给出了计算网络结构一致性的方法，只是简单定义，介绍不清。</p>
+<h1 id="待发展方向"><a href="#待发展方向" class="headerlink" title="待发展方向"></a><strong>待发展方向</strong></h1><ol>
+<li>如何得到一个不依赖于预测算法的链路预测上界</li>
+<li>如何在复杂网络中进行链路预测</li>
+<li>如何在超大规模网络上有效利用多维的信息进行链路预测</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/link-prediction/" rel="tag">#link prediction</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/26/my-first-post/" rel="next" title="我的第一篇博客">
+                <i class="fa fa-chevron-left"></i> 我的第一篇博客
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/20/spark-establish/" rel="prev" title="在Win10环境下的Spark安装和WordCount例子的运行">
+                在Win10环境下的Spark安装和WordCount例子的运行 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/tou.jpg"
+               alt="CaptainZP" />
+          <p class="site-author-name" itemprop="name">CaptainZP</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/CaptainZP" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-github-square"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/zp.njupt" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-fw fa-facebook-official"></i>
+                  
+                  facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3183874550/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zhang-pei-38-49" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-linkedin-square"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是链路预测"><span class="nav-number">1.</span> <span class="nav-text">什么是链路预测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链路预测的应用场景"><span class="nav-number">2.</span> <span class="nav-text">链路预测的应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链路预测的测试集选取方法"><span class="nav-number">3.</span> <span class="nav-text">链路预测的测试集选取方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#衡量链路预测算法精确度的指标"><span class="nav-number">4.</span> <span class="nav-text">衡量链路预测算法精确度的指标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链路预测的方法"><span class="nav-number">5.</span> <span class="nav-text">链路预测的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于节点属性相似性"><span class="nav-number">5.1.</span> <span class="nav-text">基于节点属性相似性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于网络结构相似性"><span class="nav-number">5.2.</span> <span class="nav-text">基于网络结构相似性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于似然分析"><span class="nav-number">5.3.</span> <span class="nav-text">基于似然分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于机器学习"><span class="nav-number">5.4.</span> <span class="nav-text">基于机器学习</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复杂网络上的链接预测"><span class="nav-number">6.</span> <span class="nav-text">复杂网络上的链接预测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可预测性"><span class="nav-number">7.</span> <span class="nav-text">可预测性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#待发展方向"><span class="nav-number">8.</span> <span class="nav-text">待发展方向</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CaptainZP</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"> 您是第</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>访问者</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"> 本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("wBSjcHAKfWy9FCP1Xlnb1juX-gzGzoHsz", "3v3Dr3coSrxz7xisYokVelDT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

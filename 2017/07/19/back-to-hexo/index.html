@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="重新回来了啊">
+<meta name="description" content="因为换了新电脑，所以需要将hexo部署到新的电脑上，查阅了很多别人的博客，在这里把我所用的方法记录下来。这里假设是你已经有一个github，安装过git，并且之前已经部署过hexo博客了。 安装node.js去官网下载并安装最新版的node.js 安装hexo 打开Git bash，运行npm install hexo-cli -g 安装hexo。  新建部署hexo的文件夹，比如我的是D:\Bl">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="换了新电脑，我又回来了">
+<meta property="og:title" content="如何将hexo博客部署到新电脑">
 <meta property="og:url" content="http://yoursite.com/2017/07/19/back-to-hexo/index.html">
 <meta property="og:site_name" content="CaptainZP&#39;s Blog">
-<meta property="og:description" content="重新回来了啊">
+<meta property="og:description" content="因为换了新电脑，所以需要将hexo部署到新的电脑上，查阅了很多别人的博客，在这里把我所用的方法记录下来。这里假设是你已经有一个github，安装过git，并且之前已经部署过hexo博客了。 安装node.js去官网下载并安装最新版的node.js 安装hexo 打开Git bash，运行npm install hexo-cli -g 安装hexo。  新建部署hexo的文件夹，比如我的是D:\Bl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-19T07:17:12.459Z">
+<meta property="og:updated_time" content="2017-07-19T08:23:13.161Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="换了新电脑，我又回来了">
-<meta name="twitter:description" content="重新回来了啊">
+<meta name="twitter:title" content="如何将hexo博客部署到新电脑">
+<meta name="twitter:description" content="因为换了新电脑，所以需要将hexo部署到新的电脑上，查阅了很多别人的博客，在这里把我所用的方法记录下来。这里假设是你已经有一个github，安装过git，并且之前已经部署过hexo博客了。 安装node.js去官网下载并安装最新版的node.js 安装hexo 打开Git bash，运行npm install hexo-cli -g 安装hexo。  新建部署hexo的文件夹，比如我的是D:\Bl">
 
 
 
@@ -130,7 +130,7 @@
 
   <link rel="canonical" href="http://yoursite.com/2017/07/19/back-to-hexo/"/>
 
-  <title> 换了新电脑，我又回来了 | CaptainZP's Blog </title>
+  <title> 如何将hexo博客部署到新电脑 | CaptainZP's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +260,7 @@
             
             
               
-                换了新电脑，我又回来了
+                如何将hexo博客部署到新电脑
               
             
           </h1>
@@ -286,8 +286,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/inference/" itemprop="url" rel="index">
-                    <span itemprop="name">inference</span>
+                  <a href="/categories/reference/" itemprop="url" rel="index">
+                    <span itemprop="name">reference</span>
                   </a>
                 </span>
 
@@ -306,7 +306,7 @@
 
           
           
-             <span id="/2017/07/19/back-to-hexo/" class="leancloud_visitors" data-flag-title="换了新电脑，我又回来了">
+             <span id="/2017/07/19/back-to-hexo/" class="leancloud_visitors" data-flag-title="如何将hexo博客部署到新电脑">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -333,7 +333,27 @@
       
 
       
-        <p>重新回来了啊</p>
+        <p>因为换了新电脑，所以需要将hexo部署到新的电脑上，查阅了很多别人的博客，在这里把我所用的方法记录下来。这里假设是你已经有一个github，安装过git，并且之前已经部署过hexo博客了。</p>
+<h1 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a><strong>安装node.js</strong></h1><p>去<a href="http://nodejs.cn/" target="_blank" rel="external">官网</a>下载并安装最新版的node.js</p>
+<h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a><strong>安装hexo</strong></h1><ol>
+<li><p>打开Git bash，运行<code>npm install hexo-cli -g</code> 安装hexo。</p>
+</li>
+<li><p>新建部署hexo的文件夹，比如我的是D:\Blog。</p>
+</li>
+<li><p>在D:\Blog文件夹中右击进入Git Bash，运行<code>hexo init</code> 下载搭建网站所需的所有文件。</p>
+</li>
+<li><p>运行<code>npm install</code>安装依赖包。</p>
+</li>
+<li><p>运行<code>hexo g</code> /<code>hexo generate</code> 和<code>hexo s</code> /<code>hexo sever</code> 生成博客，只不过现在只能在<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000</a>中本地运行，别人看不见，你能看见一个漂亮的博客了。如果4000端口被占，可运行<code>hexo s -p 4001</code> 后再访问<a href="http://localhost:4001" target="_blank" rel="external">http://localhost:4001</a> 查看。</p>
+</li>
+</ol>
+<h1 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h1><p>将以前的hexo文件夹中的像站点配置文件_config.yml，theme文件夹里面的主题，以及source里面自己写的博客文件复制到D:\Blog的对应位置。</p>
+<h1 id="部署博客到github"><a href="#部署博客到github" class="headerlink" title="部署博客到github"></a><strong>部署博客到github</strong></h1><ol>
+<li>为了使用<code>hexo d</code>来部署到git上，需要运行<code>npm install hexo-deployer-git --save</code> 安装所需依赖。</li>
+<li>运行<code>hexo g</code> 和<code>hexo d</code> ，也可先运行<code>hexo clean</code> 清理无用文件。</li>
+<li>访问<a href="https://captainzp.github.io/" target="_blank" rel="external">你的博客</a> 查看你以前部署的博客吧。</li>
+</ol>
+<p>ps：更多的相关内容访问<a href="https://www.zhihu.com/question/21193762" target="_blank" rel="external">https://www.zhihu.com/question/21193762</a> 和<a href="http://blog.csdn.net/qq_15807167/article/details/51601234" target="_blank" rel="external">http://blog.csdn.net/qq_15807167/article/details/51601234</a></p>
 
       
     </div>
@@ -365,8 +385,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/19/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/10/20/spark-establish/" rel="next" title="在Win10环境下的Spark安装和WordCount例子的运行">
+                <i class="fa fa-chevron-left"></i> 在Win10环境下的Spark安装和WordCount例子的运行
               </a>
             
           </div>
@@ -439,7 +459,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -447,7 +467,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -523,7 +543,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装node-js"><span class="nav-number">1.</span> <span class="nav-text">安装node.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装hexo"><span class="nav-number">2.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复制文件"><span class="nav-number">3.</span> <span class="nav-text">复制文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署博客到github"><span class="nav-number">4.</span> <span class="nav-text">部署博客到github</span></a></li></ol></div>
             
           </div>
         </section>

@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="CaptainZP&#39;s Blog">
 <meta property="og:description" content="因为换了新电脑，所以需要将hexo部署到新的电脑上，查阅了很多别人的博客，在这里把我所用的方法记录下来。这里假设是你已经有一个github，安装过git，并且之前已经部署过hexo博客了。 安装node.js去官网下载并安装最新版的node.js 安装hexo 打开Git bash，运行npm install hexo-cli -g 安装hexo。  新建部署hexo的文件夹，比如我的是D:\Bl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-19T08:34:25.913Z">
+<meta property="og:updated_time" content="2017-07-19T08:45:05.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何将hexo博客部署到新电脑">
 <meta name="twitter:description" content="因为换了新电脑，所以需要将hexo部署到新的电脑上，查阅了很多别人的博客，在这里把我所用的方法记录下来。这里假设是你已经有一个github，安装过git，并且之前已经部署过hexo博客了。 安装node.js去官网下载并安装最新版的node.js 安装hexo 打开Git bash，运行npm install hexo-cli -g 安装hexo。  新建部署hexo的文件夹，比如我的是D:\Bl">
@@ -347,11 +347,13 @@
 <li><p>运行<code>hexo g</code> /<code>hexo generate</code> 和<code>hexo s</code> /<code>hexo sever</code> 生成博客，只不过现在只能在<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000</a>中本地运行，别人看不见，你能看见一个漂亮的博客了。如果4000端口被占，可运行<code>hexo s -p 4001</code> 后再访问<a href="http://localhost:4001" target="_blank" rel="external">http://localhost:4001</a> 查看。</p>
 </li>
 </ol>
-<h1 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h1><p>将以前的hexo文件夹中的像站点配置文件_config.yml，theme文件夹里面的主题，以及source里面自己写的博客文件复制到D:\Blog的对应位置。</p>
+<h1 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a><strong>复制文件</strong></h1><p>将以前的hexo文件夹中的像站点配置文件_config.yml，theme文件夹里面的主题，以及source里面自己写的博客文件复制到D:\Blog的对应位置。</p>
 <h1 id="部署博客到github"><a href="#部署博客到github" class="headerlink" title="部署博客到github"></a><strong>部署博客到github</strong></h1><ol>
 <li>为了使用<code>hexo d</code>来部署到git上，需要运行<code>npm install hexo-deployer-git --save</code> 安装所需依赖。</li>
 <li>运行<code>hexo g</code> 和<code>hexo d</code> ，也可先运行<code>hexo clean</code> 清理无用文件。</li>
-<li>访问<a href="https://captainzp.github.io/" target="_blank" rel="external">你的博客</a> 查看你以前部署的博客吧。<br>#<strong>写博客</strong></li>
+<li>访问<a href="https://captainzp.github.io/" target="_blank" rel="external">你的博客</a> 查看你以前部署的博客吧。</li>
+</ol>
+<h1 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a><strong>写博客</strong></h1><ol>
 <li>进入博客存放的文件夹右击运行Git Bash，运行<code>hexo n &quot;new_blog_name&quot;</code>  生成新的博客文件并编辑。</li>
 <li>写完后运行<code>hexo g</code> 和<code>hexo d</code> 将新博客部署到github上。</li>
 </ol>
@@ -545,7 +547,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装node-js"><span class="nav-number">1.</span> <span class="nav-text">安装node.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装hexo"><span class="nav-number">2.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复制文件"><span class="nav-number">3.</span> <span class="nav-text">复制文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署博客到github"><span class="nav-number">4.</span> <span class="nav-text">部署博客到github</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装node-js"><span class="nav-number">1.</span> <span class="nav-text">安装node.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装hexo"><span class="nav-number">2.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复制文件"><span class="nav-number">3.</span> <span class="nav-text">复制文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署博客到github"><span class="nav-number">4.</span> <span class="nav-text">部署博客到github</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写博客"><span class="nav-number">5.</span> <span class="nav-text">写博客</span></a></li></ol></div>
             
           </div>
         </section>

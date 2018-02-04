@@ -96,20 +96,20 @@
 
 
 
-<meta name="description" content="python安装MySQL https://dev.mysql.com/downloads/mysql/ 下载mysql免费社区版，我的版本是MySQL Community Server 5.7.21 ，Microsoft Windows，x86 64-bit，文件名是mysql-5.7.21-winx64.zip  解压文件到目标文件夹，我的路径是 D:\mysql-5.7.21-winx64">
+<meta name="description" content="https://dev.mysql.com/downloads/mysql/ 下载mysql免费社区版，我的版本是MySQL Community Server 5.7.21 ，Microsoft Windows，x86 64-bit，文件名是mysql-5.7.21-winx64.zip  解压文件到目标文件夹，我的路径是 D:\mysql-5.7.21-winx64  新建配置文件my.ini">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python-install-mysql">
+<meta property="og:title" content="python安装MySQL">
 <meta property="og:url" content="http://yoursite.com/2018/02/04/python-install-mysql/index.html">
 <meta property="og:site_name" content="CaptainZP&#39;s Blog">
-<meta property="og:description" content="python安装MySQL https://dev.mysql.com/downloads/mysql/ 下载mysql免费社区版，我的版本是MySQL Community Server 5.7.21 ，Microsoft Windows，x86 64-bit，文件名是mysql-5.7.21-winx64.zip  解压文件到目标文件夹，我的路径是 D:\mysql-5.7.21-winx64">
+<meta property="og:description" content="https://dev.mysql.com/downloads/mysql/ 下载mysql免费社区版，我的版本是MySQL Community Server 5.7.21 ，Microsoft Windows，x86 64-bit，文件名是mysql-5.7.21-winx64.zip  解压文件到目标文件夹，我的路径是 D:\mysql-5.7.21-winx64  新建配置文件my.ini">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ofcl8bxx0.bkt.clouddn.com/mysql1.PNG">
 <meta property="og:image" content="http://ofcl8bxx0.bkt.clouddn.com/mysql2.PNG">
-<meta property="og:updated_time" content="2018-02-04T11:44:32.587Z">
+<meta property="og:updated_time" content="2018-02-04T11:49:09.353Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python-install-mysql">
-<meta name="twitter:description" content="python安装MySQL https://dev.mysql.com/downloads/mysql/ 下载mysql免费社区版，我的版本是MySQL Community Server 5.7.21 ，Microsoft Windows，x86 64-bit，文件名是mysql-5.7.21-winx64.zip  解压文件到目标文件夹，我的路径是 D:\mysql-5.7.21-winx64">
+<meta name="twitter:title" content="python安装MySQL">
+<meta name="twitter:description" content="https://dev.mysql.com/downloads/mysql/ 下载mysql免费社区版，我的版本是MySQL Community Server 5.7.21 ，Microsoft Windows，x86 64-bit，文件名是mysql-5.7.21-winx64.zip  解压文件到目标文件夹，我的路径是 D:\mysql-5.7.21-winx64  新建配置文件my.ini">
 <meta name="twitter:image" content="http://ofcl8bxx0.bkt.clouddn.com/mysql1.PNG">
 
 
@@ -133,7 +133,7 @@
 
   <link rel="canonical" href="http://yoursite.com/2018/02/04/python-install-mysql/"/>
 
-  <title> python-install-mysql | CaptainZP's Blog </title>
+  <title> python安装MySQL | CaptainZP's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -263,7 +263,7 @@
             
             
               
-                python-install-mysql
+                python安装MySQL
               
             
           </h1>
@@ -309,7 +309,7 @@
 
           
           
-             <span id="/2018/02/04/python-install-mysql/" class="leancloud_visitors" data-flag-title="python-install-mysql">
+             <span id="/2018/02/04/python-install-mysql/" class="leancloud_visitors" data-flag-title="python安装MySQL">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -336,7 +336,7 @@
       
 
       
-        <h1 id="python安装MySQL"><a href="#python安装MySQL" class="headerlink" title="python安装MySQL"></a>python安装MySQL</h1><ol>
+        <ol>
 <li><p><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">https://dev.mysql.com/downloads/mysql/</a> 下载mysql免费社区版，我的版本是MySQL Community Server 5.7.21 ，Microsoft Windows，x86 64-bit，文件名是<strong>mysql-5.7.21-winx64.zip</strong></p>
 </li>
 <li><p>解压文件到目标文件夹，我的路径是 <strong>D:\mysql-5.7.21-winx64</strong></p>
@@ -346,11 +346,11 @@
 </li>
 <li><p>以管理员身份运行 <strong>C:\Windows\System32\cmd.exe</strong> ，不然安装mysql时会报Install/Remove of the Service Denied错误</p>
 </li>
-<li><p><strong>mysqld –initialize-insecure </strong>生成 <strong>D:\mysql-5.7.21-winx64\data</strong> 文件夹，不然会报MySQL 服务无法启动，服务没有报告任何错误。有人用mysqld –initialize –user=mysql –console，在控制台最后一行会出现随机生成的初始密码，即root密码，一定要记下来，我一开始用这种方法试了密码w9dV&gt;4J*Mj&amp;e。</p>
+<li><p><strong>mysqld - -initialize-insecure </strong>生成 <strong>D:\mysql-5.7.21-winx64\data</strong> 文件夹，不然会报MySQL 服务无法启动，服务没有报告任何错误。有人用mysqld –initialize –user=mysql –console，在控制台最后一行会出现随机生成的初始密码，即root密码，一定要记下来，我一开始用这种方法试了密码w9dV&gt;4J*Mj&amp;e。</p>
 </li>
-<li><p><strong>mysqld –install</strong></p>
+<li><p>运行 <strong>mysqld - -install</strong></p>
 </li>
-<li><p><strong>net start mysql</strong></p>
+<li><p>运行 <strong>net start mysql</strong></p>
 </li>
 <li><p>mysql服务已经启动了，我们输入<strong>mysql -u root -p</strong> 回车登录mysql数据库，要求输入密码，刚刚安装完是没有密码的，直接回车。如果5中用了第二种方法输入初始密码w9dV&gt;4J*Mj&amp;e。</p>
 <p><img src="http://ofcl8bxx0.bkt.clouddn.com/mysql1.PNG" alt="mysql"></p>
@@ -551,7 +551,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python安装MySQL"><span class="nav-number">1.</span> <span class="nav-text">python安装MySQL</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

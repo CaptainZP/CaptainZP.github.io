@@ -1,4 +1,4 @@
-# _posts文件夹中，右键gitbush here
-hexo n "新建博客的名字"     # 复制以前文章，照着改
+# _posts,gitbush here
+hexo n "filename"    
 hexo g
-hexo d    # s本地预览
+hexo d 

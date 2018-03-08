@@ -1,0 +1,828 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|georgia:300,300italic,400,400italic,700,700italic|georgia:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="123456类名：驼峰式 和首字母缩略词：HTTPWriter 优于 HttpWriter。变量名：lower_with_underscores方法名和函数名：lower_with_underscores模块名：lower_with_underscores.py（不带下划线的名字更好）常量名：UPPER_WITH_UNDERSCORES预编译的正则表达式：name_re 1234567891011">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="廖雪峰的Python笔记">
+<meta property="og:url" content="http://yoursite.com/2017/03/08/python-language/index.html">
+<meta property="og:site_name" content="CaptainZP&#39;s Blog">
+<meta property="og:description" content="123456类名：驼峰式 和首字母缩略词：HTTPWriter 优于 HttpWriter。变量名：lower_with_underscores方法名和函数名：lower_with_underscores模块名：lower_with_underscores.py（不带下划线的名字更好）常量名：UPPER_WITH_UNDERSCORES预编译的正则表达式：name_re 1234567891011">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-08T02:01:28.608Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="廖雪峰的Python笔记">
+<meta name="twitter:description" content="123456类名：驼峰式 和首字母缩略词：HTTPWriter 优于 HttpWriter。变量名：lower_with_underscores方法名和函数名：lower_with_underscores模块名：lower_with_underscores.py（不带下划线的名字更好）常量名：UPPER_WITH_UNDERSCORES预编译的正则表达式：name_re 1234567891011">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/08/python-language/"/>
+
+  <title> 廖雪峰的Python笔记 | CaptainZP's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">CaptainZP's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">你看到的是我的成长</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                廖雪峰的Python笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-08T09:16:12+08:00" content="2017-03-08">
+              2017-03-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/03/08/python-language/" class="leancloud_visitors" data-flag-title="廖雪峰的Python笔记">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">类名：驼峰式 和首字母缩略词：HTTPWriter 优于 HttpWriter。</div><div class="line">变量名：lower_with_underscores</div><div class="line">方法名和函数名：lower_with_underscores</div><div class="line">模块名：lower_with_underscores.py（不带下划线的名字更好）</div><div class="line">常量名：UPPER_WITH_UNDERSCORES</div><div class="line">预编译的正则表达式：name_re</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">不要去刻意对齐注释，后期维护代码会增加麻烦</div><div class="line">采用#来进行多行注释</div><div class="line">标准方法注释</div><div class="line">  def f(a, b):</div><div class="line">      &quot;&quot;&quot;</div><div class="line">      To sum two ints</div><div class="line">      :arg:</div><div class="line">          a: int</div><div class="line">          b: int</div><div class="line">      :return:</div><div class="line">          c: int</div><div class="line">      &quot;&quot;&quot;</div><div class="line">      c = a + b</div><div class="line">      return c</div><div class="line"></div><div class="line">  if __name__ == &apos;__main__&apos;:</div><div class="line">      print(f.__doc__)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">print(&quot;I&apos;m ok&quot;)           # I&apos;m ok  字符串内外引号要不同，否则转义  </div><div class="line">print(&apos;I&quot;m ok&apos;)           # I&quot;m ok</div><div class="line">print(&apos;I\&apos;m ok&apos;)          # I&apos;m ok   抑制转义</div><div class="line">print(r&apos;I\&apos;m ok&apos;)         # I\&apos;m ok    抑制转义</div><div class="line">print(&apos;&apos;&apos;aaa              # 换行打印</div><div class="line">bbb                        </div><div class="line">ccc&apos;&apos;&apos;)                    </div><div class="line">print(9/3)                # 3.0  浮点型除法</div><div class="line">print(9//3)               # 3  取整</div><div class="line">print(9 % 3)              # 0  取余</div><div class="line">print(&apos;%10s:%10s&apos; %(&apos;a&apos;,&apos;b&apos;)  # 插入变量，10s控制长度可对齐</div><div class="line">print(),                  # 逗号抑制换行</div><div class="line">print(&apos;start : &#123;:0.3f&#125;&apos;.format(0.123456))</div><div class="line">print(&apos;start : &#123;:3s&#125;&apos;.format(&apos;a&apos;))</div><div class="line">print(&apos;start : &#123;:5s&#125;&#123;:5s&#125; &apos;.format(&apos;a&apos;, &apos;b&apos;))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">s = &apos;My name is captain&apos;</div><div class="line">s_list = s.split()</div><div class="line">for i in range(len(s_list)):</div><div class="line">    s_list[i] = s_list[i].upper()  # 可以全变大写，lower小写</div><div class="line">for i in s_list:  # 不可全变大写，for循环中的i是临时变量</div><div class="line">    i = i.upper()</div><div class="line">s_caps_equal = &apos; &apos;.join(s_list)  # join的用法：‘分隔符’.join(字符串序列)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">L = [x for x in range(6)]   # [0, 1, 2, 3, 4, 5] 列表生成式</div><div class="line">L = list(range(0, 6))    # [0, 1, 2, 3, 4, 5]</div><div class="line"></div><div class="line">L1 = L[0:4]   # [0, 1, 2, 3]</div><div class="line">L2 = L[-4:]   # [2, 3, 4, 5]</div><div class="line"></div><div class="line">L3 = L[:4:2]  # [0, 2]</div><div class="line">L4 = L[::2]   # [0, 2, 4]</div><div class="line"></div><div class="line"># tuple也可以用切片操作，只是操作的结果仍是tuple</div><div class="line"># 字符串也可以用切片操作，只是操作结果仍是字符串</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># dict的items()可以同时迭代key和value</div><div class="line">for k, v in d.items():</div><div class="line">    print(k, &apos;=&apos;, v)</div><div class="line">for k in d:</div><div class="line">    print(k, d[k])</div><div class="line">    </div><div class="line"># Python内置的enumerate函数可以把一个list变成索引-元素对，可访问下标</div><div class="line">l = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]</div><div class="line">for i, v in enumerate(l):    </div><div class="line">    if i == 2:</div><div class="line">        print(v)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">l = (x for x in range(6))   # 列表生成式[] vs 生成器(), 循环访问不变/next(l), 防止内存爆</div><div class="line">for i in l:</div><div class="line">    print(i)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">def fib(n):</div><div class="line">    a, b, i, res = 1, 1, 1, 0</div><div class="line">    while i &lt; n:</div><div class="line">        yield a</div><div class="line">        temp = a</div><div class="line">        a = b</div><div class="line">        b = temp + b</div><div class="line">        i = i + 1</div><div class="line">        res = res + temp</div><div class="line">    return res</div><div class="line"></div><div class="line">f = fib(6)   # 返回生成器对象</div><div class="line"># for v in f:</div><div class="line">#     print(v)     # 打印生成器yield的内容1,1,2,3,5</div><div class="line"></div><div class="line">while True:</div><div class="line">    try:</div><div class="line">        print(next(f))</div><div class="line">    except StopIteration as e:</div><div class="line">        print(e.value)            # 打印return的res=12</div><div class="line">        break</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">def f(x):</div><div class="line">    return x*x</div><div class="line">r = map(f, list(range(1, 6)))   # map将传入的函数依次作用到序列的每个元素，好处是能一眼看明白</div><div class="line">print(r)                        # &lt;map object at 0x031721F0&gt;, r是一个迭代器，是惰性序列</div><div class="line">res = list(r)</div><div class="line">print(res)                      # [1, 4, 9, 16, 25]</div><div class="line">******</div><div class="line">from functools import reduce</div><div class="line">def f(x, y):</div><div class="line">    return x*10 + y</div><div class="line">r = reduce(f, list(range(1, 6)))    # reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)</div><div class="line">print(r)                            # 12345, 返回类型为参数类型</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">from functools import reduce     # map/reduce的应用，思想：对序列做同一函数运算</div><div class="line">def str2int(s):</div><div class="line">    def char2num(i):</div><div class="line">        return &#123;&apos;0&apos;:0, &apos;1&apos;:1, &apos;2&apos;:2, &apos;3&apos;:3, &apos;4&apos;:4, &apos;5&apos;:5, &apos;6&apos;:6, &apos;7&apos;:7, &apos;8&apos;:8, &apos;9&apos;:9&#125;[i]</div><div class="line">    def fn(x, y):</div><div class="line">        return x*10 + y</div><div class="line">    return reduce(fn, list(map(char2num, s)))</div><div class="line">print(str2int(&apos;12345&apos;))  # int:12345</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># filter()把传入的函数依次作用于每个元素，然后根据返回值是True还是False决定保留还是丢弃该元素</div><div class="line">def is_odd(x):</div><div class="line">    return x % 2 == 1</div><div class="line">l = filter(is_odd, list(range(1, 6)))</div><div class="line">print(l)        # &lt;filter object at 0x036D21B0&gt;</div><div class="line">print(list(l))  # [1, 3, 5]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">def generate_num():</div><div class="line">    n = 1</div><div class="line">    while True:</div><div class="line">        n = n + 2</div><div class="line">        yield n</div><div class="line"></div><div class="line">def not_divisible(n):</div><div class="line">    return lambda x: x % n &gt; 0      # 匿名函数lambda  参数：返回值</div><div class="line"></div><div class="line">def prime():</div><div class="line">    yield 2</div><div class="line">    it = generate_num()</div><div class="line">    while True:</div><div class="line">        n = next(it)</div><div class="line">        yield n</div><div class="line">        it = filter(not_divisible(n), it)</div><div class="line"></div><div class="line">for i in prime():     # 求素数，结合了generator和filter, 理解了即理解了generator和filter</div><div class="line">    if i &lt; 100:</div><div class="line">        print(i)</div><div class="line">    else:</div><div class="line">        break</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># sorted()函数也是一个高阶函数，可以接收一个key函数来实现自定义的排序</div><div class="line">sorted([36, 5, -12, 9, -21])</div><div class="line">sorted([36, 5, -12, 9, -21], key=abs)</div><div class="line">sorted([&apos;bob&apos;, &apos;about&apos;, &apos;Zoo&apos;, &apos;Credit&apos;])</div><div class="line">sorted([&apos;bob&apos;, &apos;about&apos;, &apos;Zoo&apos;, &apos;Credit&apos;], key=str.lower)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">def log(func):   # 装饰器</div><div class="line">    def wrapper(*args, **kw):</div><div class="line">        print(&apos;call %s&apos; % func.__name__)</div><div class="line">        return func(*args, **kw)</div><div class="line">    return wrapper</div><div class="line"></div><div class="line">@log</div><div class="line">def now():</div><div class="line">    print(&apos;hello world&apos;)</div><div class="line"></div><div class="line">now()  # call now hello world, @log放到now()函数的定义处，相当于执行了语句：now = log(now)</div><div class="line">       # 现在同名的now变量指向了新的函数</div><div class="line">now = log(now)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量</div><div class="line">def my_sum(l):</div><div class="line">    def do_sum():     # 不需要立刻计算，而是在后面的代码中，根据需要再计算</div><div class="line">        res = 0</div><div class="line">        for i in l:</div><div class="line">            res = res + i</div><div class="line">        return res</div><div class="line">    return do_sum</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    f = my_sum(list(range(1, 6)))</div><div class="line">    print(f)         # &lt;function my_sum.&lt;locals&gt;.do_sum at 0x02B7C618&gt;</div><div class="line">    print(f())       # 15</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def my_abs(x):</div><div class="line">    if not isinstance(x, (int, float)):       # 判断参数类型</div><div class="line">        raise TypeError(&apos;bad operand type&apos;)</div><div class="line">    pass</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">def power(x, n=2):          # 设置默认参数 power(2)=4， power(2,3)=8</div><div class="line">    s = 1</div><div class="line">    while n &gt; 0:</div><div class="line">        n = n - 1</div><div class="line">        s = s * x</div><div class="line">    return s</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if __name__==&apos;__main__&apos;:    # 运行测试，其他py文件引用此句将失效 </div><div class="line">    test()                  # 特殊变量：__xx__，自己定义不能用特殊变量</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">def _f1(name):              # private，继承时将内部逻辑隐藏，加1/2个下划线</div><div class="line">    return &apos;Hello, %s&apos; % name     </div><div class="line"></div><div class="line">def _f2(name):</div><div class="line">    return &apos;Hi, %s&apos; % name</div><div class="line"></div><div class="line">def f(name):                # public </div><div class="line">    if len(name) &gt; 3:</div><div class="line">        return _f1(name)</div><div class="line">    else:</div><div class="line">        return _f2(name)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class Student(object):                   # 括号中为父类，没有就用object</div><div class="line">                                      </div><div class="line">    def __init__(self, name, score):     # 第一个参数永远是self，向创建的实例本身</div><div class="line">        self.__name = name               </div><div class="line">        self.__score = score             # private：属性的名称前加上两个下划线 </div><div class="line">                                         </div><div class="line">    def print_score(self):               # 不用传参，类内可直接调用</div><div class="line">        print(&apos;%s: %s&apos; % (self.__name, self.__score))</div><div class="line">        </div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    s1 = Student(&apos;zp&apos;, 23)</div><div class="line">    s1.print_info()</div><div class="line">    print(s1.__name)                     # 会报错没有此属性，因为是private属性</div><div class="line">    print(s1.__age)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Animal(object):</div><div class="line">    def run(self):</div><div class="line">        print(&apos;Animal is running...&apos;)</div><div class="line">        </div><div class="line">class Dog(Animal):                       # Dog继承Animal</div><div class="line">    def run(self):</div><div class="line">        print(&apos;Dog is running...&apos;)</div><div class="line"></div><div class="line">dog = Dog()</div><div class="line">dog.run()                                # Dog is running...        </div><div class="line">res1 = isinstance(dog, Dog)              # 子类的run()覆盖了父类的run()，体现多态</div><div class="line">res2 = isinstance(dog, Animal)           # 都为True，多态本质</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">type()判断对象类型</div><div class="line">isinstance()判断有继承的class类型</div><div class="line">dir()获得一个对象的所有属性和方法，无论private或public</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">class Student(object):</div><div class="line">    name = &apos;Student&apos;         # 类属性 优先级低于self，没有实例属性则访问类属性</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class Student(object):</div><div class="line">    __slots__ = (&apos;name&apos;, &apos;age&apos;)    # 用tuple定义允许绑定的属性名称</div><div class="line">    </div><div class="line">s = Student() </div><div class="line">s.name = &apos;Michael&apos;                 # 绑定属性&apos;name&apos;</div><div class="line">s.age = 25 						 # 绑定属性&apos;age&apos;</div><div class="line">s.score = 99                       # AttributeError</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">主线都是单一继承下来的，需要“混入”额外的功能可通过多重继承实现，这种设计通常称之为MixIn</div><div class="line">class MyTCPServer(TCPServer, ForkingMixIn):   # 多进程模式的TCP服务</div><div class="line">    pass</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class Student(object):</div><div class="line">     def __init__(self, name):</div><div class="line">         self.name = name</div><div class="line">     def __str__(self):        # 定制类，打印的好看</div><div class="line">         return &apos;Student object (name: %s)&apos; % self.name</div><div class="line"></div><div class="line">print(Student(&apos;Michael&apos;))      # Student object (name: Michael)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class Student(object):</div><div class="line">    def __init__(self, name):</div><div class="line">        self.name = name</div><div class="line">    def __str__(self):         # __str__()返回用户看到的字符串</div><div class="line">        return &apos;Student object (name=%s)&apos; % self.name</div><div class="line">    __repr__ = __str__         # __repr__()返回程序开发者看到的字符串，是为调试服务的</div><div class="line">                               # 通常__str__()和__repr__()都是一样</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">def say_hello(self, name):</div><div class="line">    print(&apos;hello %s&apos; % name)</div><div class="line"></div><div class="line">zp = type(&apos;Hello&apos;, (object,), dict(hello=say_hello))   # type动态创建类</div><div class="line">print(type(zp))    # zp是type类型,可理解为zp是Hello类的动态创建器</div><div class="line">cwy = zp()</div><div class="line">print(type(cwy))   # cwy是Hello类型</div><div class="line">cwy.hello(&apos;cwy&apos;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class ListMetaClass(type):    # 元类</div><div class="line">    def __new__(cls, name, bases, attrs):</div><div class="line">        attrs[&apos;add&apos;] = lambda self, value: self.append(value)  # add=append</div><div class="line">        return type.__new__(cls, name, bases, attrs)</div><div class="line"></div><div class="line">class MyList(list, metaclass=ListMetaClass):   </div><div class="line">    pass       # 指示Python解释器在创建MyList时，要通过ListMetaclass.__new__()来创建</div><div class="line"></div><div class="line">L = MyList()</div><div class="line">L.add(1)     # [1]</div><div class="line">print(L)</div><div class="line">L.append(2)</div><div class="line">print(L)    # [1,2]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from enum import Enum</div><div class="line">Month = Enum(&apos;Month&apos;, (&apos;Jan&apos;, &apos;Feb&apos;, &apos;Mar&apos;))     # 非精确的枚举类</div><div class="line">print(Month.Jan.value)         # value属性是自动赋给成员的int常量，默认从1开始</div><div class="line">for name in Month:</div><div class="line">    print(name, name.value)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">from enum import Enum, unique</div><div class="line">@unique                        # @unique装饰器可以帮助检查没有重复值</div><div class="line">class Weekday(Enum):           # 精确的枚举类</div><div class="line">    Sun = 0</div><div class="line">    Mon = 1</div><div class="line">    Tue = 2</div><div class="line">print(Weekday.Sun.value)</div><div class="line">for name in Weekday:</div><div class="line">    print(name, name.value)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">def foo(s):</div><div class="line">    n = int(s)</div><div class="line">    if n==0:</div><div class="line">        raise ValueError(&apos;invalid value: %s&apos; % s)</div><div class="line">    return 10 / n       # 中断自己抛出错误，让调用函数去处理错误</div><div class="line"></div><div class="line">def bar():</div><div class="line">    try:</div><div class="line">        foo(&apos;0&apos;)</div><div class="line">    except ValueError as e:</div><div class="line">        print(&apos;ValueError!&apos;)  </div><div class="line">        raise           # 当前函数不知道应该怎么处理该错误，继续往上抛让顶层调用者处理</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">import logging      </div><div class="line">logging.basicConfig(level=logging.INFO)</div><div class="line"></div><div class="line">s = &apos;0&apos;</div><div class="line">n = int(s)</div><div class="line">logging.info(&apos;n = %d&apos; % n)</div><div class="line">print(10 / n)</div><div class="line"></div><div class="line"># logging代替print，logging级别有debug、info、warning、error等几个级别，当我们指定如level=INFO时，logging.debug就不起作用了；logging通过简单的配置，一条语句可以同时输出到不同的地方，比如console和文件</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">read()会一次性读取文件的全部内容，内存易爆</div><div class="line">readlines()一次性读取所有内容并按行返回list</div><div class="line">readline()每次读取一行内容</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">r：读</div><div class="line">w: 写               # 写/追加不存在则创建，二进制同</div><div class="line">r+：读写</div><div class="line">w+：读写</div><div class="line">a：追加写</div><div class="line">a+: 追加读写</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">with open(&apos;dsjtzs_txfz_training_sample.txt&apos;) as f:</div><div class="line">    line = f.readline()</div><div class="line">    while line:</div><div class="line">        print(line)</div><div class="line">        line = f.readline()   # 非一次性读进内存</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import os       </div><div class="line">dirs = [x for x in os.listdir(&apos;C:\\Users\\captianzp\\Documents&apos;)      </div><div class="line">        if os.path.isdir(os.path.join(&apos;C:\\Users\\captianzp\\Documents&apos;, x))]</div><div class="line">print(dirs)</div><div class="line"># 遍历当前目录，isdir采用绝对路径，os.path.join方便连接路径</div><div class="line"></div><div class="line">print(os.path.split(&apos;C:\\Users\\captianzp\\Documents&apos;))  </div><div class="line">#  分割路径 (&apos;C:\\Users\\captianzp&apos;, &apos;Documents&apos;)，后一部分总是最后级别的目录或文件名</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">import pickle    	          # 序列化: 把变量从内存中存储到文件中</div><div class="line">d = &#123;&apos;name&apos;: &apos;Bob&apos;, &apos;age&apos;: 23, &apos;score&apos;: 90&#125;</div><div class="line"></div><div class="line">res = pickle.dumps(d)         # pickle.dumps()方法把任意对象序列化成一个bytes</div><div class="line">d = pickle.loads(res)         # pickle.loads()方法反序列化出对象</div><div class="line"></div><div class="line"></div><div class="line">f = open(&apos;dump.txt&apos;, &apos;wb&apos;)</div><div class="line">pickle.dump(d, f)             # pickle.dump()直接把对象序列化后写入一个文件</div><div class="line">f.close()</div><div class="line"></div><div class="line">f1 = open(&apos;dump.txt&apos;, &apos;rb&apos;)</div><div class="line">d = pickle.load(f1)           # pickle.load()从一个文件中直接反序列化出对象</div><div class="line">f1.close()</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import json</div><div class="line">d = &#123;&apos;name&apos;: &apos;Bob&apos;, &apos;age&apos;: 23, &apos;score&apos;: 90&#125;</div><div class="line">print(type(d))                # dict</div><div class="line"></div><div class="line">res = json.dumps(d)           </div><div class="line">print(type(res))              # str，json.dumps()方法把任意对象序列化成一个bytes</div><div class="line">                             </div><div class="line">d = json.loads(res)</div><div class="line">print(type(d))                # dict，json.loads()方法反序列化出对象</div><div class="line"></div><div class="line"># json.dump()、json.load()用法与pickle相同,写入文件</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/20/spark-establish/" rel="next" title="在Win10环境下的Spark安装和WordCount例子的运行">
+                <i class="fa fa-chevron-left"></i> 在Win10环境下的Spark安装和WordCount例子的运行
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/19/back-to-hexo/" rel="prev" title="如何将hexo博客部署到新电脑">
+                如何将hexo博客部署到新电脑 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/tou.jpg"
+               alt="CaptainZP" />
+          <p class="site-author-name" itemprop="name">CaptainZP</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/CaptainZP" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-github-square"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/zp.njupt" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-fw fa-facebook-official"></i>
+                  
+                  facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3183874550/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zhang-pei-38-49" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-linkedin-square"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CaptainZP</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"> 您是第</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>访问者</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"> 本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("wBSjcHAKfWy9FCP1Xlnb1juX-gzGzoHsz", "3v3Dr3coSrxz7xisYokVelDT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

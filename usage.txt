@@ -1,4 +1,0 @@
-# _posts,gitbush here
-hexo n "filename"    
-hexo g
-hexo d 

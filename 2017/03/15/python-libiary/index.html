@@ -1,0 +1,876 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|georgia:300,300italic,400,400italic,700,700italic|georgia:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="文本 1.string：capwords     所有单词首字母大写 2.str内建：maketrans    应用于多个替换规则时 3.string：string.Template     多个变量的文本拼接 4.re 1234一般正则三段论1.pattern = &amp;apos;匹配规则&amp;apos;2.text = &amp;apos;待匹配文本&amp;apos;3.match对象 = re.search(pa">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pyhton标准库">
+<meta property="og:url" content="http://yoursite.com/2017/03/15/python-libiary/index.html">
+<meta property="og:site_name" content="CaptainZP&#39;s Blog">
+<meta property="og:description" content="文本 1.string：capwords     所有单词首字母大写 2.str内建：maketrans    应用于多个替换规则时 3.string：string.Template     多个变量的文本拼接 4.re 1234一般正则三段论1.pattern = &amp;apos;匹配规则&amp;apos;2.text = &amp;apos;待匹配文本&amp;apos;3.match对象 = re.search(pa">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-08T07:15:29.761Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pyhton标准库">
+<meta name="twitter:description" content="文本 1.string：capwords     所有单词首字母大写 2.str内建：maketrans    应用于多个替换规则时 3.string：string.Template     多个变量的文本拼接 4.re 1234一般正则三段论1.pattern = &amp;apos;匹配规则&amp;apos;2.text = &amp;apos;待匹配文本&amp;apos;3.match对象 = re.search(pa">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/15/python-libiary/"/>
+
+  <title> Pyhton标准库 | CaptainZP's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">CaptainZP's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">你看到的是我的成长</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Pyhton标准库
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-15T15:13:23+08:00" content="2017-03-15">
+              2017-03-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/03/15/python-libiary/" class="leancloud_visitors" data-flag-title="Pyhton标准库">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em><strong>文本</strong></em></p>
+<p>1.string：capwords     所有单词首字母大写</p>
+<p>2.str内建：maketrans    应用于多个替换规则时</p>
+<p>3.string：string.Template     多个变量的文本拼接</p>
+<p>4.re</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">一般正则三段论</div><div class="line">1.pattern = &apos;匹配规则&apos;</div><div class="line">2.text = &apos;待匹配文本&apos;</div><div class="line">3.match对象 = re.search(pattern, text)  # 不能匹配返回None,对象包含规则、文本、起始位置等</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">预编译正则三段论</div><div class="line">1.regex = re.compile(&apos;匹配规则&apos;)</div><div class="line">2.text = &apos;待匹配文本&apos;</div><div class="line">3.match对象 = regex.search(text)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">多重匹配，有多少匹配多少，search只匹配一个</div><div class="line">for mat in re.finditer(pattern, text):  </div><div class="line">    print(mat.start(), mat.end())</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">* 0-n</div><div class="line">+ 1-n</div><div class="line">？0/1，其余之后加？可消除贪心行为匹配最少的字符</div><div class="line">&#123;m&#125;&#123;m,n&#125; 次数或范围</div><div class="line">[abc][a-zA-Z] 字符集</div><div class="line">[^] 非这些字符</div><div class="line">. 任何单个字符</div><div class="line">\d 一个数字 大写为非</div><div class="line">\s 一个空白符（tab，space，\n）</div><div class="line">\w 字母或数字</div><div class="line">^ 字符串或行开始位置查找</div><div class="line">$ 字符串或行结束位置查找</div><div class="line">() 进行分组，match.group()返回匹配的字符串序列</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">re.match与re.search区别：match含一个开始的锚，只能匹配开头，否则为None</div></pre></td></tr></table></figure>
+<p><em><strong>数据结构</strong></em></p>
+<p>1.collections.Counter  计算字符个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">两步走</div><div class="line">text = &apos;my name is zhangpei. I love chenwenyan. I am a student. I love reading. I love sports&apos;</div><div class="line">1.初始化 count=collections.Counter(text.split‘ ’)   # 计字符输入单个字符串，计词输入list</div><div class="line">2.查找最高频词 print(count.most_common(3))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+ 计数相加   - 计数相减    &amp; 取最小计数   | 取最大计数</div></pre></td></tr></table></figure>
+<p>2.collections.defaultdict  初始化时由你指定默认值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dic = collections.defaultdict(int)  # 默认值可还为float/list/set，或由函数定义返回值用函数作参</div><div class="line">print(dic[&apos;a&apos;])  # int默认为0</div></pre></td></tr></table></figure>
+<p>3.collections.deque  双端队列，线程安全，可控制为队列和栈</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">增：extend/append/extendleft/appendleft (extend将序列按个输入，append整体输入序列)</div><div class="line">删：pop/popleft/remove</div><div class="line">改/查：deq[index]</div><div class="line">旋转：rotate(+index)顺时针移动  rotate(-index)逆时针移动</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">from collections import deque  # 双端队列多线程删除</div><div class="line">import threading</div><div class="line">import time</div><div class="line"></div><div class="line">deq = deque()</div><div class="line">deq.extend(range(5))</div><div class="line">deq.extendleft(&apos;abcde&apos;)</div><div class="line">print(list(deq))</div><div class="line"></div><div class="line">def delete(direction, process):</div><div class="line">    while True:</div><div class="line">        try:</div><div class="line">            pop_element = process()</div><div class="line">        except IndexError:</div><div class="line">            print(&apos;不好删了&apos;)</div><div class="line">            break</div><div class="line">        else:</div><div class="line">            print(&apos;%10s: %5s&apos; % (direction, pop_element))</div><div class="line">            time.sleep(1)</div><div class="line">    print(&apos;%10s: done&apos; % direction)</div><div class="line"></div><div class="line">pop1 = threading.Thread(target=delete, args=(&apos;left&apos;, deq.popleft))</div><div class="line">pop2 = threading.Thread(target=delete, args=(&apos;right&apos;, deq.pop))</div><div class="line">pop1.start()    # start()方法用于启动线程</div><div class="line">pop2.start()</div><div class="line">pop1.join()     # 调用Thread.join将会使主调线程堵塞，直到被调用线程运行结束或超时</div><div class="line">pop2.join()</div></pre></td></tr></table></figure>
+<p>4.collections.namedtuple  指定元素名字的元组，内存使用也高效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.定义由类表示 Person = namedtuple(&apos;Person&apos;, &apos;name age gender grade&apos;)  </div><div class="line">  # 类名+元素名字符串 # 参数rename=True可将冲突字段名自动改成下标</div><div class="line">2.定义实例     zp = Person(&apos;zp&apos;, 23, &apos;male&apos;, 90)</div><div class="line">3.查字段值     zp[1] == zp.age</div><div class="line">4.查所有字段名 Person._fields</div></pre></td></tr></table></figure>
+<p>5.collections.OrderedDict  有序字典，记录增加元素的顺序，顺序不同字典不同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">定义 people = OrderedDict()</div><div class="line">增/改 people[&apos;age&apos;]=23</div></pre></td></tr></table></figure>
+<p>6.array  数组，元素类型相同时使用，省内存，用法同list</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">定义：a = array.array(&apos;i&apos;)  # i为整型，u为字符，f为浮点型</div><div class="line">增：a.append()/a.extend([])</div><div class="line">删：a.pop()</div><div class="line">查：a[2:5]</div></pre></td></tr></table></figure>
+<p>7.heapq 最小堆</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data = [8, 6, 10, 1, 12, 4]</div><div class="line">1.定义：heapq.heapify(data)</div><div class="line">2.增：heapq.heappush(data, 3)</div><div class="line">3.删：heapq.heappop(data)</div><div class="line">4.改：heapq.heapreplace(data, 11)  # 总是改最小值</div><div class="line">5.查：heapq.nlargest(2, data)/heapq.nsmallest(2, data)</div></pre></td></tr></table></figure>
+<p>8.bisect  有序列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import bisect</div><div class="line">import random</div><div class="line"></div><div class="line">l = list()</div><div class="line">random.seed(1)</div><div class="line">for i in range(1, 15):</div><div class="line">    r = random.randint(1, 100)</div><div class="line">    bisect.insort(l, r)   # 按序插入，从左插入为insort_left</div><div class="line">    position = bisect.bisect(l, r)  # 返回插入的位置,bisect_left</div><div class="line">print(l)</div></pre></td></tr></table></figure>
+<p>9.queue.Queue 队列，线程安全，多线程可以处理同一个队列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1.定义：q = queue.Queue()</div><div class="line">2.增：q.put(i)</div><div class="line">3.删：p = q.get()</div><div class="line">4.查：q.empty()</div><div class="line">      q.qsize() 返回队列的大小</div><div class="line">      q.full()  队列满</div></pre></td></tr></table></figure>
+<p>10.queue.LifoQueue 栈，线程安全</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.定义：q = queue.LifoQueue()</div><div class="line">2.增：q.put(i)</div><div class="line">3.删：p = q.get()</div><div class="line">4.查：q.empty()</div></pre></td></tr></table></figure>
+<p>11.queue.PriorityQueue  优先权队列，默认调用类型内置比较函数，由堆实现，线程安全</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.定义：q = queue.PriorityQueue()</div><div class="line">2.增：q.put(i)   # 调用内置比较函数进行比较后加入堆</div><div class="line">3.删：p = q.get()</div><div class="line">4.查：q.empty()</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">from queue import PriorityQueue</div><div class="line">import threading</div><div class="line"></div><div class="line"></div><div class="line">class Job(object):</div><div class="line">    def __init__(self, priority, description):</div><div class="line">        self.priority = priority</div><div class="line">        self.description = description</div><div class="line"></div><div class="line">    # def __cmp__(self, other):   # python3取消了内置cmp</div><div class="line">    #     return cmp(self.priority, other.priority)</div><div class="line">    def __lt__(self, other):</div><div class="line">        return self.priority &lt; other.priority</div><div class="line"></div><div class="line">pq = PriorityQueue()</div><div class="line">pq.put(Job(10, &apos;last to process&apos;))</div><div class="line">pq.put(Job(5, &apos;second to process&apos;))</div><div class="line">pq.put(Job(1, &apos;first to process&apos;))</div><div class="line"></div><div class="line"></div><div class="line">def process_job(q):</div><div class="line">    while True:</div><div class="line">        try:</div><div class="line">            member = q.get()</div><div class="line">            print(member.description)</div><div class="line">        except Exception as e:</div><div class="line">            print(e)</div><div class="line"></div><div class="line">t1 = threading.Thread(target=process_job, args=(pq,))</div><div class="line">t2 = threading.Thread(target=process_job, args=(pq,))</div><div class="line">t = list()</div><div class="line">t.append(t1)</div><div class="line">t.append(t2)</div><div class="line"></div><div class="line">for i in t:</div><div class="line">    i.start()  # start()方法用于启动线程</div><div class="line">pq.join()  # q.join() 实际上意味着等到队列为空，再执行别的操作</div></pre></td></tr></table></figure>
+<p>12.struct 处理二进制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1.非缓存</div><div class="line">import struct</div><div class="line">import binascii</div><div class="line"></div><div class="line">values = (1, &apos;ab&apos;.encode(&apos;utf-8&apos;), 2.7)</div><div class="line">s = struct.Struct(&apos;I 2s f&apos;)  # 对应各个值的类型</div><div class="line">packed_data = s.pack(*values)</div><div class="line">print(binascii.hexlify(packed_data))</div><div class="line">unpacked_data = s.unpack(packed_data)</div><div class="line">print(unpacked_data)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">2.缓存</div><div class="line">import binascii</div><div class="line">import ctypes</div><div class="line">import struct</div><div class="line"></div><div class="line">s = struct.Struct(&apos;I 2s f&apos;)</div><div class="line">values = (1, &apos;ab&apos;.encode(&apos;utf-8&apos;), 2.7)</div><div class="line">b = ctypes.create_string_buffer(s.size)   # 定义buffer的大小，可大于数据</div><div class="line">print(&apos;Before  :&apos;, binascii.hexlify(b.raw))</div><div class="line">s.pack_into(b, 0, *values)</div><div class="line">print(&apos;After   :&apos;, binascii.hexlify(b.raw))</div><div class="line">print(&apos;Unpacked:&apos;, s.unpack_from(b, 0))</div></pre></td></tr></table></figure>
+<p><em><strong>算法（回头看）</strong></em></p>
+<p><em><strong>日期与时间</strong></em></p>
+<p>1.time  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import time</div><div class="line">t1 = time.time()  # 获取浮点型的秒数，可加减</div><div class="line">t2 = time.ctime() # 获取格式化的时间   </div><div class="line">time.strptime(t2)) # 解析时间</div><div class="line">time.strftime(&apos;%a %b %d %H:%M:%S %Y&apos;, time.strptime(t1)) # 格式化显示时间，(星期月日时分秒年)</div><div class="line">time.sleep(2)   # 交出当前线程，等待系统再次唤醒，只有一个线程即阻塞应用</div></pre></td></tr></table></figure>
+<p>2.datetime </p>
+<p>3.calendar</p>
+<p><em><strong>数值计算</strong></em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import decimal</div><div class="line"></div><div class="line">a = decimal.Decimal(&apos;Infinity&apos;)</div><div class="line">print(a + 1)  # Infinity</div><div class="line">b = decimal.Decimal(&apos;-Infinity&apos;)</div><div class="line">print(b + 1)  # -Infinity</div><div class="line">c = decimal.Decimal(&apos;NaN&apos;)</div><div class="line">print(c + 1)  # NaN</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import random</div><div class="line"></div><div class="line">random.random()   0~1浮点数</div><div class="line">random.seed(1)  伪随机数，程序生成随机值，种子同随机数同</div><div class="line">random.uniform(m,n)  m~n浮点数</div><div class="line">random.randint(m,n)  m~n整数</div><div class="line">random.randrange(m,n,step)  m~n按步长取的数</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import math</div><div class="line"></div><div class="line">pi = math.pi</div><div class="line">e = math.e</div><div class="line">math.trunc()  取小数的整数部分</div><div class="line">math.modf()   返回浮点数的小数和整数</div><div class="line">math.floor()  小于其一点的整数</div><div class="line">math.ceil()   大于其一点的整数</div><div class="line">math.fabs()   取绝对值</div><div class="line">math.fsum()   求list和</div><div class="line">math.pow(x,a) 幂运算</div><div class="line">math.log(x,a) 取对数</div><div class="line">math.log10(x) 取底数为10的对数</div></pre></td></tr></table></figure>
+<p><em><strong>文件系统</strong></em></p>
+<p>1.linecache  高效读取文本文件</p>
+<p>2.shutil  高级文件操作，如复制和设置权限</p>
+<p>3.mmap  内存映射文件，进行读写，如原地修改文件某一行</p>
+<p>4.StringIO  类文件的文本缓冲区，像读写文件一样处理内存缓冲区</p>
+<p>5.os.path  文件路径的处理</p>
+<p><em><strong>数据持久存储</strong></em></p>
+<p>1.pickle  对象序列化</p>
+<p>2.shelve  利用pickle持久存储对象</p>
+<p>3.anydbm  DBM数据库，以字符串为键的类字典接口</p>
+<p>4.xml.etree.ElementTree  生成和解析XML文件</p>
+<p>5.csv  处理csv文件</p>
+<p>6.sqlite3  嵌入式关系型数据库，非MySQL等单独的数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1.定义数据库：db_filename = &apos;name.db&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2.连接数据库：with sqlite3.connect(db_filename) as conn:      # 不存在数据库文件则新建</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">3.建数据表：schema_filename = &apos;name.sql&apos;</div><div class="line">           with open(schema_filename, &apos;rt&apos;) as f:   # t为自动识别Windows的换行符</div><div class="line">           		schema = f.read()</div><div class="line">           conn.executescript(schema)               # execute是执行一句</div><div class="line">           ----------------------------------------------------------</div><div class="line">           conn.executescript(&quot;&quot;&quot;建表sql语句&quot;&quot;&quot;)   	 # 语句长，阅读性不佳</div><div class="line">           </div><div class="line">           e.g. conn.executescript(&quot;&quot;&quot;</div><div class="line">                create table project(</div><div class="line">                    name        text  primary key,</div><div class="line">                    description text,</div><div class="line">                    deadline    date</div><div class="line">                );</div><div class="line">                create table task(</div><div class="line">                    id  integer primary key autoincrement not null,</div><div class="line">                    priority integer default 1,</div><div class="line">                    details text,</div><div class="line">                    status text,</div><div class="line">                    deadline date,</div><div class="line">                    completed_on date,</div><div class="line">                    project text not null references project(name)</div><div class="line">                );</div><div class="line">                &quot;&quot;&quot;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">4.添加数据：conn.executescript(&quot;&quot;&quot;多句查表sql语句&quot;&quot;&quot;&quot;)</div><div class="line"></div><div class="line">   e.g. conn.executescript(&quot;&quot;&quot;</div><div class="line">        insert into project (name, description, deadline)</div><div class="line">        values (&apos;pymotw&apos;, &apos;python module of the week&apos;, &apos;2017-7-19&apos;);</div><div class="line">        </div><div class="line">        insert into task (details, status, deadline, project)</div><div class="line">        values (&apos;write about select&apos;, &apos;done&apos;, &apos;2017-7-20&apos;, &apos;pymotw&apos;);</div><div class="line">        &quot;&quot;&quot;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">5.查询数据：cur = conn.cursor()</div><div class="line">    	   cur.execute(&apos;select * from project&apos;)</div><div class="line">           print(cur.fetchone())  # 返回一行数据的tuple，fetchall返回所有查询结果的list</div><div class="line">           cur.close()            # fetchmany(x)返回x个结果</div><div class="line">  若查询语句中有变量用?占位，如query=&quot;&quot;&quot;select * from ?&quot;&quot;&quot;,执行cur.execute(query, (project,))   用元组来包含变量</div><div class="line">  若查询语句中某些变量重复多次用命名参数，query = &quot;&quot;&quot;select * from :project_name&quot;&quot;&quot;,执行的方法  	 为cur.execute(query, &#123;&apos;project_name&apos;:project_name&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">6.update、delete方法与insert类似，会相关sql语法即可</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">7.事务隔离（有用时再看）</div></pre></td></tr></table></figure>
+<p><em><strong>进程与线程</strong></em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">并行：</div><div class="line">并发：</div><div class="line">进程：</div><div class="line">线程：</div><div class="line">协程：</div><div class="line">同步：</div><div class="line">异步：</div></pre></td></tr></table></figure>
+<p>1.subprocess 创建附加进程</p>
+<p>2.signal 异步系统事件</p>
+<p>3.threading 管理并发操作，程序可在同一进程空间运行多个操作（并发，IO密集型操作）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">import threading</div><div class="line">import logging   # 线程安全</div><div class="line">import time</div><div class="line"></div><div class="line">logging.basicConfig(</div><div class="line">    level=logging.DEBUG,</div><div class="line">    format=&apos;[%(levelname)s] (%(threadName)-10s) %(message)s &apos;</div><div class="line">)</div><div class="line"></div><div class="line"># def worker(num):</div><div class="line">#     &quot;&quot;&quot;thread worker function&quot;&quot;&quot;</div><div class="line">#     print(&apos;worker:%s,%s&apos; % (threading.current_thread().getName(), num))</div><div class="line">#     logging.debug(&apos;exiting&apos;)</div><div class="line">#</div><div class="line"># for i in range(10):</div><div class="line">#     t = threading.Thread(name=str(i), target=worker, args=(i,))</div><div class="line">#     t.start()</div><div class="line"></div><div class="line"></div><div class="line">def daemon():</div><div class="line">    logging.debug(&apos;开始打印&apos;)</div><div class="line">    for i in range(5):</div><div class="line">        time.sleep(2)</div><div class="line">        print(&apos;daemon:&apos;, i)</div><div class="line"></div><div class="line"></div><div class="line">def non_daemon():</div><div class="line">    logging.debug(&apos;开始打印&apos;)</div><div class="line">    for i in range(5):</div><div class="line">        print(&apos;noo_daemon:&apos;, i)</div><div class="line"></div><div class="line">t1 = threading.Thread(name=&apos;daemon&apos;, target=daemon)</div><div class="line">t1.setDaemon(True)    # 守护进程可在主程序和其他进程结束时隐式结束</div><div class="line">t2 = threading.Thread(name=&apos;non_daemon&apos;, target=non_daemon)</div><div class="line"></div><div class="line">t1.start()</div><div class="line">t2.start()</div><div class="line">t1.join(20)          # join可以使的等待进程运行完</div><div class="line">print(&apos;t1 is alive&apos;, t1.is_alive())</div><div class="line">t2.join()</div></pre></td></tr></table></figure>
+<p>4.multiprocessing 像线程一样管理进程（并行，cpu密集型操作）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">一般开启新进程</div><div class="line">import multiprocessing</div><div class="line">import time</div><div class="line"></div><div class="line">def worker(num):</div><div class="line">    &quot;&quot;&quot;worker function&quot;&quot;&quot;</div><div class="line">    time.sleep(1)</div><div class="line">    print(&apos;worker:%s&apos; % num)</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:   # 主要的逻辑部分卸载main中，或者单独写在一个文件中，确保新进程启动</div><div class="line">    for i in range(5):</div><div class="line">        p = multiprocessing.Process(target=worker, args=(i,))  # 参数必须能用pickle串行化</div><div class="line">        p.start()   # 看不出谁先谁后，每个进程都在争夺资源</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">给进程命名</div><div class="line">import multiprocessing</div><div class="line">import time</div><div class="line"></div><div class="line">def worker(num):</div><div class="line">    &quot;&quot;&quot;worker function&quot;&quot;&quot;</div><div class="line">    time.sleep(1)</div><div class="line">    print(&apos;worker:&#123;:5&#125;, name:&#123;:10s&#125;&apos;.format(num, multiprocessing.current_process().name))</div><div class="line"></div><div class="line">def service(num):</div><div class="line">    &quot;&quot;&quot;service function&quot;&quot;&quot;</div><div class="line">    time.sleep(1)</div><div class="line">    print(&apos;service:&#123;:5&#125;, name:&#123;:10s&#125;&apos;.format(num, multiprocessing.current_process().name))</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    s = multiprocessing.Process(name=&apos;service&apos;, target=service, args=(1,))</div><div class="line">    w1 = multiprocessing.Process(name=&apos;worker&apos;, target=worker, args=(2,))</div><div class="line">    w2 = multiprocessing.Process(target=worker, args=(3,))</div><div class="line">    s.start()    </div><div class="line">    w1.start()</div><div class="line">    w2.start()</div><div class="line">每个进程都有一个默认名称，可在创建进程时改变</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">创建守护进程p.daemon=True，一般主程序会等待所有子进程完成后退出，守护进程会在主程序结束时结束</div><div class="line">主进程使用join()会等待守护进程退出</div><div class="line">import multiprocessing</div><div class="line">import time</div><div class="line"></div><div class="line">def worker(num):</div><div class="line">    &quot;&quot;&quot;worker function&quot;&quot;&quot;</div><div class="line">    time.sleep(1)</div><div class="line">    print(&apos;worker:&#123;:5&#125;, name:&#123;:10s&#125;&apos;.format(num, multiprocessing.current_process().name))</div><div class="line"></div><div class="line">def service(num):</div><div class="line">    &quot;&quot;&quot;service function&quot;&quot;&quot;</div><div class="line">    time.sleep(5)</div><div class="line">    print(&apos;service:&#123;:5&#125;, name:&#123;:10s&#125;&apos;.format(num, multiprocessing.current_process().name))</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    s = multiprocessing.Process(name=&apos;service&apos;, target=service, args=(1,))</div><div class="line">    s.daemon = True   </div><div class="line">    w = multiprocessing.Process(name=&apos;worker&apos;, target=worker, args=(2,))</div><div class="line">    s.start()</div><div class="line">    w.start()</div><div class="line">    s.join()</div><div class="line">    w.join()</div><div class="line">注意daemon状态一定要在start前设置</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">通过进程间传递消息来分解工作，具体使用进程池</div><div class="line">import multiprocessing</div><div class="line">import time</div><div class="line"></div><div class="line">def calculate(data):</div><div class="line">    return data * 2</div><div class="line"></div><div class="line">def start_p():</div><div class="line">    return</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    start = time.time()</div><div class="line">    inputs = list(range(1000))</div><div class="line">    builtin_outputs = map(calculate, inputs)</div><div class="line">    end = time.time()</div><div class="line">    print(&apos;builtin_time:&apos;, end - start)</div><div class="line">    start1 = time.time()</div><div class="line">    pool_size = multiprocessing.cpu_count() * 2</div><div class="line">    pool = multiprocessing.Pool(processes=pool_size,</div><div class="line">                                initializer=start_p,</div><div class="line">                                )</div><div class="line">    pool_outputs = pool.map(calculate, inputs)</div><div class="line">    pool.close()</div><div class="line">    pool.join()</div><div class="line">    end1 = time.time()</div><div class="line">    print(&apos;pool_time:&apos;, end1 - start1)</div></pre></td></tr></table></figure>
+<p><em><strong>Internet</strong></em></p>
+<p>1.urllib.parse.urlparse 解析url的组成部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">http://netloc/path;param?query=arg#frag</div><div class="line">返回namedtuple</div><div class="line">(scheme, netloc, path, params, query, fragment, username, password, hostname, port)</div><div class="line">  机制   网络位置 路径 路径段参数  查询   片段       用户名     密码      主机名   端口</div><div class="line">-------------------------------------------------------------------------------------</div><div class="line">from urllib.parse import urlparse</div><div class="line">from urllib.parse import urldefrag</div><div class="line"></div><div class="line">url = &apos;https://www.baidu.com/index.php?tn=monline_3_dg&apos;</div><div class="line">parsed = urlparse(url)     # 解析元素</div><div class="line">print(parsed)</div><div class="line">print(parsed.scheme)</div><div class="line">url, frag = urldefrag(url)  # 分成两部分</div><div class="line">print(url, frag)</div><div class="line">print(parsed.geturl())   # 反解析</div></pre></td></tr></table></figure>
+<p>2.urllib 访问不需要验证的远程资源</p>
+<p>3.urllib2 使用url标识的Internet资源</p>
+<p>4.json</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/08/python-note/" rel="next" title="廖雪峰的Python笔记">
+                <i class="fa fa-chevron-left"></i> 廖雪峰的Python笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/15/numpy-note/" rel="prev" title="numpy-note">
+                numpy-note <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/tou.jpg"
+               alt="CaptainZP" />
+          <p class="site-author-name" itemprop="name">CaptainZP</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/CaptainZP" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-github-square"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/zp.njupt" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-fw fa-facebook-official"></i>
+                  
+                  facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3183874550/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zhang-pei-38-49" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-linkedin-square"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CaptainZP</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"> 您是第</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>访问者</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"> 本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("wBSjcHAKfWy9FCP1Xlnb1juX-gzGzoHsz", "3v3Dr3coSrxz7xisYokVelDT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
